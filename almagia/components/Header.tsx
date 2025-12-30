@@ -2,31 +2,19 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Aboreto, Cormorant_SC, Cormorant } from "next/font/google";
-
-const aboreto = Aboreto({ subsets: ["latin"], weight: "400" });
-
-const cormorantSC = Cormorant_SC({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
-const cormorant = Cormorant({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["italic"],
-});
+import { aboreto, cormorant, cormorantSC } from "@/app/fonts";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="p-4 shadow-md">
+    // funderar ännu på färg med Sara.
+    <header className="p-4 shadow-md bg-[#D1D6BF]">
       <nav className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-center leading-tight">
+        <Link href="/" className="text-center">
           <div>
             <div
-              className={`${cormorantSC.className} text-2xl md:text-5xl tracking-wide text-gray-900`}
+              className={`${cormorantSC.className} text-2xl md:text-5xl tracking-wide`}
             >
               Almagia
             </div>
@@ -46,9 +34,12 @@ export default function Header() {
         </button>
 
         <ul
-          className={`flex-col md:flex md:flex-row md:space-x-6 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent transition-all duration-300 text-lg md:text-xl ${
-            isOpen ? "flex" : "hidden"
-          } ${aboreto.className}`}
+          className={`text-xl flex flex-col md:flex-row md:space-x-6 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
+            aboreto.className
+          }
+    ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}
+    md:opacity-100 md:max-h-none
+  `}
         >
           <li>
             <Link
