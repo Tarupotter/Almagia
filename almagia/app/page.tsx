@@ -7,7 +7,7 @@ export default function Home() {
     <section className="mx-auto max-w-6xl px-6 py-20">
       <HeroSection />
 
-      <div className="rounded-2xl bg-white/60 p-8 shadow-sm">
+      <div className="shadow-sm">
         <ReviewsSection />
       </div>
     </section>

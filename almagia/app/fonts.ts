@@ -14,7 +14,7 @@ export const cormorantSC = Cormorant_SC({
 export const cormorant = Cormorant({
   subsets: ["latin"],
   weight: ["300", "400"],
-  style: ["normal", "italic"],
+  style: ["italic"],
 });
 
 

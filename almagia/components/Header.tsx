@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { aboreto, cormorant, cormorantSC, } from "@/app/fonts";
+import { aboreto, cormorant, cormorantSC, inter } from "@/app/fonts";
 
 
 export default function Header() {

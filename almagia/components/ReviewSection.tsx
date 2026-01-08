@@ -20,7 +20,7 @@ export default function ReviewsSection() {
   };
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
+    <section className="bg-gradient-to-r from-[#E0E4D4] mx-auto max-w-6xl px-6 py-20">
       <h2 className="mb-12 text-center text-2xl md:text-3xl">
         Dela din upplevelse
       </h2>
