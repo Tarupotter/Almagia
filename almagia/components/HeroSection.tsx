@@ -1,9 +1,10 @@
 
 export default function HeroSection() {
     return (
-      <section className="relative w-full h-[600px] md:h-[600px]">
+      <section className="relative w-full h-[500px] md:h-[600px]">
+      
         <img
-          src="./lokal.jpeg"
+          src="./lokal.jpeg" 
           alt="Harmonisk bild"
           className="absolute w-full h-full object-cover object-[70%_30%]"
         />
