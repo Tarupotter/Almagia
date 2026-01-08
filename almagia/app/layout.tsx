@@ -1,7 +1,7 @@
-import Header from "../components/Header";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
-import { aboreto, cormorant, cormorantSC } from "./fonts";
+import { cormorant } from "./fonts";
 
 
 export default function RootLayout({
@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body className={`${aboreto.className}`}>
+      <body className={`${cormorant.className}`}>
         <Header />  
         <main>{children}</main>
         <Footer />

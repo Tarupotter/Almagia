@@ -1,13 +1,5 @@
-import { Alegreya, Inter } from "next/font/google";
+import { alegreya, inter } from "@/app/fonts";
 
-const alegreya = Alegreya({
-  subsets: ["latin"],
-  style: ["italic"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-});
 
 type ReviewCardProps = {
   name?: string;

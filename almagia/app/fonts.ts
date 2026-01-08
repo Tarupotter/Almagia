@@ -1,4 +1,5 @@
-import { Aboreto, Cormorant_SC, Cormorant } from "next/font/google";
+import { Aboreto, Cormorant_SC, Cormorant, Alegreya, Inter, } from "next/font/google";
+
 
 export const aboreto = Aboreto({
   subsets: ["latin"],
@@ -14,4 +15,14 @@ export const cormorant = Cormorant({
   subsets: ["latin"],
   weight: ["300", "400"],
   style: ["normal", "italic"],
+});
+
+
+export const alegreya = Alegreya({
+  subsets: ["latin"],
+  style: ["italic"],
+});
+
+export const inter = Inter({
+  subsets: ["latin"],
 });
