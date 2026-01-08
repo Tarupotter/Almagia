@@ -20,7 +20,7 @@ export default function ReviewsSection() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-[#E0E4D4] mx-auto max-w-6xl px-6 py-20">
+    <section className="bg-white/10 mx-auto max-w-6xl px-6 py-20">
       <h2 className="mb-12 text-center text-2xl md:text-3xl">
         Dela din upplevelse
       </h2>
@@ -49,7 +49,7 @@ export default function ReviewsSection() {
             <button
               type="button"
               onClick={handleSubmit}
-              className="rounded-full bg-[#687564] px-6 py-2 text-sm text-white hover:opacity-90"
+              className="rounded-full bg-[#D1AD95] px-6 py-2 text-sm text-white hover:opacity-90"
             >
               Skicka
             </button>

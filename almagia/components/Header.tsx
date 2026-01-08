@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     // funderar ännu på färg med Sara.
-    <header className="p-4 shadow-md bg-gradient-to-r from-[#E0E4D4] to-white">
+    <header className="p-4 shadow-md bg-gradient-to-r from-[#E3CDBE] to-white">
       <nav className="container mx-auto flex justify-between items-center">
         <Link href="/" className="text-center">
           <div>
@@ -35,8 +35,8 @@ export default function Header() {
         </button>
 
         <ul
-          className={`text-xl flex flex-col md:flex-row md:space-x-6 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
-            cormorant.className
+          className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
+            aboreto.className
           }
     ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}
     md:opacity-100 md:max-h-none
