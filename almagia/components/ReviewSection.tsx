@@ -22,9 +22,11 @@ export default function ReviewsSection() {
 
   return (
     <section className="bg-white/10 mx-auto max-w-6xl px-6 py-20">
-      <h2 className="mb-12 text-center text-2xl md:text-3xl">
+      <div className="mb-12 text-center">
+      <h2 className="text-2xl md:text-3xl">
         Dela din upplevelse
       </h2>
+      <p className="">Dela gärna vad du tyckte om ditt besök, skriv bara det som känns rätt för dig ♡</p></div>
 
       <div className="grid gap-12 md:grid-cols-2">
         <div className="rounded-2xl bg-white/60 p-8 shadow-sm">
