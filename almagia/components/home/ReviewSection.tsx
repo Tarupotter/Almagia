@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import ReviewCard from "@/components/ReviewCard";
-import Button from "./Button";
+import ReviewCard from "@/components/home/ReviewCard";
+import Button from "../ui/Button";
 
 
 export default function ReviewsSection() {

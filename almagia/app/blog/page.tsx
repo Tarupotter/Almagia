@@ -1,4 +1,4 @@
-import BlogPost from "@/components/BlogPost";
+import BlogPost from "@/components/blog/BlogPost";
 
 export default function BlogPage() {
   const mockPost = {

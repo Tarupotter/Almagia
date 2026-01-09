@@ -10,8 +10,8 @@ export default function Header() {
 
   return (
     // funderar ännu på färg med Sara.
-    <header className="p-4 shadow-md bg-gradient-to-r from-[#E3CDBE] to-white">
-      <nav className="container mx-auto flex justify-between items-center">
+    <header className="sticky top-0 z-50 mx-auto ">
+      <nav className="flex items-center justify-between bg-white/70 backdrop-blur-md px-8 py-4 shadow-sm">
         <Link href="/" className="text-center">
           <div>
             <div
@@ -35,7 +35,7 @@ export default function Header() {
         </button>
 
         <ul
-          className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static top-21 left-0 w-full bg-white md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
             cormorant.className
           }
     ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}
@@ -45,25 +45,25 @@ export default function Header() {
           <li>
             <Link
               href="/about"
-              className="block px-4 py-2 hover:text-[#D4AEA4]"
+              className="block px-2 py-2 nav-link"
             >
               Om mig
             </Link>
           </li>
           <li>
-            <Link href="/blog" className="block px-4 py-2 hover:text-[#D4AEA4]">
+            <Link href="/blog" className="block px-2 py-2 nav-link">
               Blogg
             </Link>
           </li>
           <li>
-            <Link href="/" className="block px-4 py-2 hover:text-[#D4AEA4]">
+            <Link href="/" className="block px-2 py-2 nav-link">
               Utbildningar
             </Link>
           </li>
           <li>
             <Link
               href="/contact"
-              className="block px-4 py-2 hover:text-[#D4AEA4]"
+              className="block px-2 py-2 nav-link"
             >
               Kontakt
             </Link>

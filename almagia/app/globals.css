@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fcf4ec;
+  --background: #ffffff;
   --foreground: #171717;
 }
 
@@ -25,3 +25,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.nav-link {
+  position: relative; 
+  display: inline-block; 
+  padding-bottom: 2px; 
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: #D4AEA4;
+  transition: width 0.3s ease;
+}
+
+@media (min-width: 768px) {
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}

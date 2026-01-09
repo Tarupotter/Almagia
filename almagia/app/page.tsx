@@ -1,6 +1,6 @@
-import TreatmentsSection from "@/components/TreatmentSection";
-import ReviewsSection from "@/components/ReviewSection";
-import HeroSection from "@/components/HeroSection";
+import TreatmentsSection from "@/components/home/TreatmentSection";
+import ReviewsSection from "@/components/home/ReviewSection";
+import HeroSection from "@/components/home/HeroSection";
 
 export default function Home() {
   return (
