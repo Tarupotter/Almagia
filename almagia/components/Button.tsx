@@ -3,6 +3,7 @@ type ButtonProps = {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
+  className?: string;
 };
 
 export default function Button({ children, href, onClick }: ButtonProps) {

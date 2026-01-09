@@ -36,7 +36,7 @@ export default function Header() {
 
         <ul
           className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static top-21 left-0 w-full bg-[#D1D6BF] md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
-            aboreto.className
+            cormorant.className
           }
     ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}
     md:opacity-100 md:max-h-none
