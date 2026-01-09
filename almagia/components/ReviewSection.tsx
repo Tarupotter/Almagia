@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ReviewCard from "@/components/ReviewCard";
+import Button from "./Button";
 
 
 export default function ReviewsSection() {
@@ -46,15 +47,12 @@ export default function ReviewsSection() {
               onChange={(e) => setName(e.target.value)}
             />
 
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className="rounded-full bg-[#D1AD95] px-6 py-2 text-sm text-white hover:opacity-90"
-            >
-              Skicka
-            </button>
+           <Button onClick={handleSubmit}>
+            Skicka
+           </Button>
           </div>
         </div>
+        
 
         <div className="space-y-6">
           {reviews.length === 0 ? (
