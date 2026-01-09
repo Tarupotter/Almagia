@@ -52,7 +52,6 @@ export default function ReviewsSection() {
            </Button>
           </div>
         </div>
-        
 
         <div className="space-y-6">
           {reviews.length === 0 ? (
