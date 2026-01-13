@@ -8,7 +8,10 @@ type ButtonProps = {
 
 export default function Button({ children, href, onClick }: ButtonProps) {
   const styles =
-    "rounded-full bg-[#D1AD95] px-6 py-2 text-sm text-white hover:opacity-90 transition-opacity";
+    "inline-flex items-center justify-center rounded-full \
+   bg-[#CFC3B5] px-5 py-2 text-sm font-medium text-[#3f3a36] \
+   shadow-sm hover:shadow-md hover:bg-[#C3B6A8] \
+   transition-all";
 
   if (href) {
     return (
