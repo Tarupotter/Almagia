@@ -5,9 +5,9 @@ import HeroSection from "@/components/home/HeroSection";
 export default function Home() {
   return (
     <>
-    
+     <HeroSection />
     <section className="mx-auto max-w-6xl px-6 py-10">
-       <HeroSection />
+      
       <div className="shadow-sm">
         <TreatmentsSection />
         <ReviewsSection />
