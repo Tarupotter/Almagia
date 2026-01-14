@@ -7,6 +7,7 @@ import { aboreto, cormorant, cormorantSC, inter } from "@/app/fonts";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const close = () => setIsOpen(false);
 
   return (
     // funderar ännu på färg med Sara.
@@ -29,13 +30,17 @@ export default function Header() {
 
         <button
           className="md:hidden text-2xl text-gray-800"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen((v) => !v)}
+          aria-label="Öppna meny"
+          aria-expanded={isOpen}
         >
           ☰
         </button>
 
         <ul
-          className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static top-21 left-0 w-full bg-white md:w-auto md:bg-transparent overflow-hidden transition-all duration-300 ease-in-out ${
+          className={`text-xl flex flex-col md:flex-row md:space-x-2 absolute md:static 
+            top-full left-0 w-full bg-white/70 md:w-auto md:bg-transparent overflow-hidden 
+            transition-all duration-300 ease-in-out ${
             cormorant.className
           }
     ${isOpen ? "opacity-100 max-h-96" : "opacity-0 max-h-0"}
@@ -45,25 +50,27 @@ export default function Header() {
           <li>
             <Link
               href="/about"
-              className="block px-2 py-2 nav-link"
+              className="block px-2 py-2 nav-link" onClick={close}
             >
               Om mig
             </Link>
           </li>
           <li>
-            <Link href="/blog" className="block px-2 py-2 nav-link">
+            <Link href="/blog" className="block px-2 py-2 nav-link" onClick={close}
+            >
               Blogg
             </Link>
           </li>
           <li>
-            <Link href="/" className="block px-2 py-2 nav-link">
+            <Link href="/" className="block px-2 py-2 nav-link" onClick={close}
+            >
               Utbildningar
             </Link>
           </li>
           <li>
             <Link
               href="/contact"
-              className="block px-2 py-2 nav-link"
+              className="block px-2 py-2 nav-link" onClick={close}
             >
               Kontakt
             </Link>

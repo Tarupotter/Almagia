@@ -1,9 +1,10 @@
-// components/Button.tsx
+import Link from "next/link";
+
 type ButtonProps = {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  className?: string;
+  
 };
 
 export default function Button({ children, href, onClick }: ButtonProps) {
@@ -13,11 +14,26 @@ export default function Button({ children, href, onClick }: ButtonProps) {
    shadow-sm hover:shadow-md hover:bg-[#C3B6A8] \
    transition-all";
 
-  if (href) {
+   if (href) {
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          className={styles}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <a href={href} className={styles}>
+      <Link href={href} className={styles}>
         {children}
-      </a>
+      </Link>
     );
   }
 
