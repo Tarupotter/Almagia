@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Button from "@/components/ui/Button";
+import PostForm from "@/components/admin/PostForm";
 
 const mockPost = {
   title: "Vad är healing?",
@@ -19,40 +19,13 @@ export default function EditPostPage() {
     <div className="space-y-6">
       <h1 className="text-xl">Redigera inlägg</h1>
 
-      <div className="space-y-4">
-        <input
-          type="text"
-          className="w-full rounded-xl border border-gray-300 p-3"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-
-        <textarea
-          rows={8}
-          className="w-full rounded-xl border border-gray-300 p-3"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-
-        <label className="flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            checked={published}
-            onChange={(e) => setPublished(e.target.checked)}
-          />
-          Publicerad
-        </label>
-
-        <div className="flex gap-3">
-          <Button onClick={() => alert("Uppdateras senare via backend")}>
-            Spara ändringar
-          </Button>
-
-          <button className="text-sm text-red-600 underline">
-            Ta bort inlägg
-          </button>
-        </div>
-      </div>
+      <PostForm
+        initialValues={mockPost}
+        submitLabel="Spara ändringar"
+        showDelete
+        onSubmit={() => alert("Uppdateras senare via backend")}
+        onDelete={() => alert("Tas bort senare via backend")}
+      />
     </div>
   );
 }
