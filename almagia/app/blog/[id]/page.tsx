@@ -13,9 +13,8 @@ export default function BlogPostPage({
 };
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-16 space-y-6">
+    <main className="mx-auto max-w-4xl mt-12 px-6 py-16 space-y-6">
       
-
         <BlogPost {...post} /> 
         <Link
         href="/blog"
