@@ -7,7 +7,7 @@ type Post = {
   id: string;
   title: string;
   excerpt?: string;
-  publishedAt?: string; 
+  publishedAt?: string;
   imageUrl?: string;
 };
 
@@ -15,7 +15,8 @@ const demoPosts: Post[] = [
   {
     id: "1",
     title: "Första blogginlägget",
-    excerpt: "Här kommer du kunna skriva vad du vill samt lägga foton om du vill.",
+    excerpt:
+      "Här kommer du kunna skriva vad du vill samt lägga foton om du vill.",
     publishedAt: "2026-01-14",
     imageUrl: "/flowersinhand.jpeg",
   },
@@ -39,13 +40,17 @@ const demoPosts: Post[] = [
   },
 ];
 
-
 export default function BlogPage() {
   const posts = demoPosts; // senare ska detta komma från backend
 
   const STEP = 3;
   const [visibleCount, setVisibleCount] = useState(STEP);
 
+  /* usememo sparar ett beräknat värde så React slipper räkna om det i onödan.
+  Om posts har ändrats:
+  räkna om sortedPosts
+   Annars:
+      använd gamla värdet */
   const sortedPosts = useMemo(() => {
     return [...posts].sort((a, b) => {
       const ad = a.publishedAt ? Date.parse(a.publishedAt) : 0;
