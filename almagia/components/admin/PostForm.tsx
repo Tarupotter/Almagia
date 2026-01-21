@@ -64,12 +64,12 @@ export default function PostForm({
       </label>
 
       <div className="flex flex-wrap items-center gap-3">
-      <Button
-  onClick={() => onSubmit({ title, content, published })}
-  disabled={!canSubmit}
->
-  {submitLabel}
-</Button>
+        <Button
+          onClick={() => onSubmit({ title, content, published })}
+          disabled={!canSubmit}
+        >
+          {submitLabel}
+        </Button>
 
         {showDelete && (
           <button
