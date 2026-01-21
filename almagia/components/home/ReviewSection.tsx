@@ -11,7 +11,6 @@ type Review = {
   status: "pending" | "approved";
 };
 
-
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState<Review[]>([]);
   const [name, setName] = useState("");
@@ -41,14 +40,14 @@ export default function ReviewsSection() {
     setSubmitted(true);
   };
 
-
   return (
     <section className="bg-white/10 mx-auto max-w-6xl px-6 py-20">
       <div className="mb-12 text-center">
-      <h2 className="text-2xl md:text-3xl">
-        Dela din upplevelse
-      </h2>
-      <p className="">Dela gärna vad du tyckte om ditt besök, skriv bara det som känns rätt för dig ♡</p>
+        <h2 className="text-2xl md:text-3xl">Dela din upplevelse</h2>
+        <p className="">
+          Dela gärna vad du tyckte om ditt besök, skriv bara det som känns rätt
+          för dig ♡
+        </p>
       </div>
 
       <div className="grid gap-12 md:grid-cols-2">
@@ -75,14 +74,12 @@ export default function ReviewsSection() {
               onChange={(e) => setName(e.target.value)}
             />
 
-           <Button onClick={handleSubmit}>
-            Skicka
-           </Button>
-           {submitted && (
-  <p className="text-xs text-gray-600">
-    Tack! Din recension visas efter att den har godkänts.
-  </p>
-)}
+            <Button onClick={handleSubmit}>Skicka</Button>
+            {submitted && (
+              <p className="text-xs text-gray-600">
+                Tack! Din recension visas efter att den har godkänts.
+              </p>
+            )}
           </div>
         </div>
 
