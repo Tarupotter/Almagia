@@ -1,12 +1,23 @@
 "use client";
 
 import { useState } from "react";
-import PostForm from "@/components/admin/PostForm";
+import PostForm, { PostFormValues } from "@/components/admin/PostForm";
+
+async function handleSubmit(values: PostFormValues) {
+  await fetch("/api/admin/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(values),
+  });
+
+  alert("Inlägg sparat!");
+}
+
+
 
 export default function NewPostPage() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-  const [published, setPublished] = useState(false);
 
   return (
     <div className="space-y-6">
@@ -14,7 +25,7 @@ export default function NewPostPage() {
 
     <PostForm
       submitLabel="Spara inlägg"
-      onSubmit={() => alert("Sparas senare via backend")}
+      onSubmit={handleSubmit}
     />
   </div>
   );
