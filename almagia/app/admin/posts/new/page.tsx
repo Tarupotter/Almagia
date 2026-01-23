@@ -1,8 +1,12 @@
 "use client";
 
+
 import { createPostAction } from "../actions";
 import PostForm, { PostFormValues } from "@/components/admin/PostForm";
 
+
+
+export default function NewPostPage() {
 async function handleSubmit(values: PostFormValues) {
   try {
     await createPostAction(values);
@@ -12,9 +16,7 @@ async function handleSubmit(values: PostFormValues) {
     console.error(err);
   }
 }
-
-
-export default function NewPostPage() {
+  
   return (
     <div className="space-y-6">
       <h1 className="text-xl">Nytt blogginlägg</h1>

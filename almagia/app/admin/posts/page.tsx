@@ -5,8 +5,8 @@ export default async function AdminPostsPage() {
 
   const { data: posts, error } = await supabase
     .from("posts")
-    .select("id,title,created_at,published")
-    .order("created_at", { ascending: false });
+    .select("id,title,createdAt,published")
+    .order("createdAt", { ascending: false });
 
   if (error) {
     return <p>Kunde inte ladda inlägg.</p>;
@@ -37,9 +37,9 @@ export default async function AdminPostsPage() {
             >
               <div>
                 <p className="font-medium">{post.title}</p>
-                {post.created_at && (
+                {post.createdAt && (
                   <p className="text-xs text-gray-500">
-                    {String(post.created_at).slice(0, 10)}
+                    {String(post.createdAt).slice(0, 10)}
                   </p>
                 )}
               </div>

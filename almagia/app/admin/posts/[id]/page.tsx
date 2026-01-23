@@ -1,31 +1,30 @@
-"use client";
+import { supabase } from "@/lib/supabaseClient";
+import { notFound } from "next/navigation";
+import EditPostClient from "./EditPostClient";
 
-import { useState } from "react";
-import PostForm from "@/components/admin/PostForm";
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
 
-const mockPost = {
-  title: "Vad är healing?",
-  content:
-    "Healing är ett energiarbete som syftar till att skapa balans i kropp och själ.",
-  published: true,
-};
+  const { data: post, error } = await supabase
+    .from("posts")
+    .select("id,title,content,published,imageUrl")
+    .eq("id", id)
+    .single();
 
-export default function EditPostPage() {
-  const [title, setTitle] = useState(mockPost.title);
-  const [content, setContent] = useState(mockPost.content);
-  const [published, setPublished] = useState(mockPost.published);
+  if (error || !post) notFound();
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-xl">Redigera inlägg</h1>
-
-      <PostForm
-        initialValues={mockPost}
-        submitLabel="Spara ändringar"
-        showDelete
-        onSubmit={() => alert("Uppdateras senare via backend")}
-        onDelete={() => alert("Tas bort senare via backend")}
-      />
-    </div>
+    <EditPostClient
+      id={post.id}
+      initialValues={{
+        title: post.title,
+        content: post.content,
+        published: post.published,
+      }}
+    />
   );
 }
