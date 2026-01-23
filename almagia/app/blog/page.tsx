@@ -1,25 +1,22 @@
-
-
 import { supabase } from "@/lib/supabaseClient";
 import BlogPreview from "@/components/blog/BlogPreview";
 
 export default async function BlogPage() {
-
   const { data: posts, error } = await supabase
-  .from("posts")
-  .select("id,title,content,imageUrl,published,createdAt")
-  .eq("published", true)
-  .order("createdAt", { ascending: false });
+    .from("posts")
+    .select("id,title,content,imageUrl,published,createdAt")
+    .eq("published", true)
+    .order("createdAt", { ascending: false });
 
-if (error) {
-  return (
-    <main className="mx-auto max-w-4xl px-6 py-16">
-      <p>Kunde inte ladda blogginlägg.</p>
-    </main>
-  );
-}
+  if (error) {
+    return (
+      <main className="mx-auto max-w-4xl px-6 py-16">
+        <p>Kunde inte ladda blogginlägg.</p>
+      </main>
+    );
+  }
 
-const safePosts = posts ?? [];
+  const safePosts = posts ?? [];
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-16 space-y-10">
@@ -29,7 +26,7 @@ const safePosts = posts ?? [];
       </header>
 
       <ul className="space-y-4">
-      {safePosts.map((post) => (
+        {safePosts.map((post) => (
           <li key={post.id}>
             <BlogPreview
               id={post.id}
