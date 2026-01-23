@@ -1,11 +1,19 @@
 import Link from "next/link";
+import { supabase } from "@/lib/supabaseClient";
 
-const mockPosts = [
-  { id: "1", title: "Vad är healing?", date: "2026-01-10" },
-  { id: "2", title: "Energi och balans", date: "2026-01-08" },
-];
+export default async function AdminPostsPage() {
 
-export default function AdminPostsPage() {
+  const { data: posts, error } = await supabase
+    .from("posts")
+    .select("id,title,created_at,published")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    return <p>Kunde inte ladda inlägg.</p>;
+  }
+
+  const safePosts = posts ?? [];
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -18,24 +26,25 @@ export default function AdminPostsPage() {
         </Link>
       </div>
 
-      {mockPosts.length === 0 ? (
+      {safePosts.length === 0 ? (
         <p className="text-sm text-gray-600">Inga inlägg ännu.</p>
       ) : (
         <ul className="space-y-3">
-          {mockPosts.map((post) => (
+          {safePosts.map((post) => (
             <li
               key={post.id}
               className="flex items-center justify-between rounded-2xl bg-white/60 p-4"
             >
               <div>
                 <p className="font-medium">{post.title}</p>
-                <p className="text-xs text-gray-500">{post.date}</p>
+                {post.created_at && (
+                  <p className="text-xs text-gray-500">
+                    {String(post.created_at).slice(0, 10)}
+                  </p>
+                )}
               </div>
 
-              <Link
-                href={`/admin/posts/${post.id}`}
-                className="text-sm underline"
-              >
+              <Link href={`/admin/posts/${post.id}`} className="text-sm underline">
                 Redigera
               </Link>
             </li>

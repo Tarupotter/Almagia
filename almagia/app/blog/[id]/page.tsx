@@ -1,24 +1,23 @@
 import BlogPost from "@/components/blog/BlogPost";
 import Link from "next/link";
-import { prisma } from "@/src/lib/prisma";
+import { supabase } from "@/lib/supabaseClient";
 import { notFound } from "next/navigation";
 
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string }
 }) { 
 
-  const { id } = await params;
+  const { id } = params;
 
-  const post = await prisma.post.findUnique({
-    where: { id },
-  });
+  const { data: post, error } = await supabase
+  .from("posts")
+  .select("id,title,content,imageUrl,published")
+  .eq("id", id)
+  .single();
 
-  // Visa inte opublicerade inlägg publikt
-  if (!post || !post.published) {
-    notFound();
-  }
+if (error || !post || !post.published) notFound();
 
   return (
     <main className="mx-auto max-w-4xl mt-12 px-6 py-16 space-y-6">
