@@ -1,5 +1,6 @@
 "use client";
 
+import { deleteBlogImageByPublicUrl } from "@/lib/deleteImage";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import PostForm, { PostFormValues } from "@/components/admin/PostForm";
@@ -32,6 +33,8 @@ export default function EditPostClient({
 
   async function onSubmit(values: PostFormValues) {
     try {
+      const oldImageUrl = initialValues.imageUrl;
+
       let imageUrl = initialValues.imageUrl;
 
       if (imageFile) {
@@ -42,6 +45,14 @@ export default function EditPostClient({
         ...values,
         imageUrl,
       });
+
+      if (imageFile && oldImageUrl && oldImageUrl !== imageUrl) {
+        try {
+          await deleteBlogImageByPublicUrl(oldImageUrl);
+        } catch (e) {
+          console.warn("Kunde inte radera gammal bild:", e);
+        }
+      }
 
       if (previewUrl) URL.revokeObjectURL(previewUrl);
       setPreviewUrl(null);
