@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import PostForm, { PostFormValues } from "@/components/admin/PostForm";
 import { deletePostAction, updatePostAction } from "../actions";
 import { uploadBlogImage } from "@/lib/uploadImage";
@@ -16,14 +17,22 @@ export default function EditPostClient({
   id: string;
   initialValues: EditInitialValues;
 }) {
+  const router = useRouter();
+
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [isSaving, setIsSaving] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  function handleImageChange(file: File | null) {
+    setImageFile(file);
+
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+
+    setPreviewUrl(file ? URL.createObjectURL(file) : null);
+  }
 
   async function onSubmit(values: PostFormValues) {
     try {
-      setIsSaving(true);
-
-      let imageUrl: string | undefined = initialValues.imageUrl;
+      let imageUrl = initialValues.imageUrl;
 
       if (imageFile) {
         imageUrl = await uploadBlogImage(imageFile);
@@ -34,13 +43,16 @@ export default function EditPostClient({
         imageUrl,
       });
 
-      alert("Ändringar sparade!");
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      setPreviewUrl(null);
       setImageFile(null);
+
+      alert("Ändringar sparade!");
+
+      router.refresh();
     } catch (e) {
       console.error(e);
       alert("Kunde inte spara ändringar");
-    } finally {
-      setIsSaving(false);
     }
   }
 
@@ -50,21 +62,24 @@ export default function EditPostClient({
 
     try {
       await deletePostAction(id);
-      window.location.href = "/admin/posts";
+      router.push("/admin/posts");
+      router.refresh();
     } catch (e) {
       console.error(e);
       alert("Kunde inte ta bort inlägg");
     }
   }
 
+  const imageToShow = previewUrl ?? initialValues.imageUrl;
+
   return (
     <div className="space-y-6">
       <h1 className="text-xl">Redigera inlägg</h1>
 
-      {initialValues.imageUrl && (
+      {imageToShow && (
         <img
-          src={initialValues.imageUrl}
-          alt="Nuvarande bild"
+          src={imageToShow}
+          alt="Bild"
           className="w-full max-w-md rounded-2xl object-cover"
         />
       )}
@@ -75,11 +90,11 @@ export default function EditPostClient({
           content: initialValues.content,
           published: initialValues.published,
         }}
-        submitLabel={isSaving ? "Sparar..." : "Spara ändringar"}
+        submitLabel="Spara ändringar"
         showDelete
         onSubmit={onSubmit}
         onDelete={onDelete}
-        onImageChange={setImageFile}
+        onImageChange={handleImageChange}
       />
     </div>
   );

@@ -24,6 +24,7 @@ export default async function Page({
         title: post.title,
         content: post.content,
         published: post.published,
+        imageUrl: post.imageUrl ?? undefined,
       }}
     />
   );

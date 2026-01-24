@@ -84,7 +84,7 @@ export default function PostForm({
           checked={published}
           onChange={(e) => setPublished(e.target.checked)}
         />
-        Publicerad
+        Publicera
       </label>
 
       <div className="flex flex-wrap items-center gap-3">
