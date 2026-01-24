@@ -5,7 +5,7 @@ export default async function AdminPostsPage() {
 
   const { data: posts, error } = await supabase
     .from("posts")
-    .select("id,title,createdAt,published")
+    .select("id,title,imageUrl,createdAt,published")
     .order("createdAt", { ascending: false });
 
   if (error) {

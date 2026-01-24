@@ -15,6 +15,7 @@ type PostFormProps = {
   onSubmit: (values: PostFormValues) => void;
   showDelete?: boolean;
   onDelete?: () => void;
+  onImageChange?: (file: File | null) => void;
 };
 
 export default function PostForm({
@@ -23,6 +24,7 @@ export default function PostForm({
   onSubmit,
   showDelete = false,
   onDelete,
+  onImageChange,
 }: PostFormProps) {
   const [title, setTitle] = useState(initialValues.title);
   const [content, setContent] = useState(initialValues.content);
@@ -52,6 +54,28 @@ export default function PostForm({
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
+      </div>
+
+      <div className="space-y-2">
+        <label className="text-sm text-gray-700">Bild</label>
+
+        <input
+          type="file"
+          accept="image/*"
+          id="image-upload"
+          className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0] ?? null;
+            onImageChange?.(file);
+          }}
+        />
+
+        <label
+          htmlFor="image-upload"
+          className="inline-block cursor-pointer rounded-full bg-white/70 px-4 py-2 text-sm shadow hover:shadow-md transition"
+        >
+          Välj bild
+        </label>
       </div>
 
       <label className="flex items-center gap-2 text-sm text-gray-700">
