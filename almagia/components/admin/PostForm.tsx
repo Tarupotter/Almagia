@@ -16,6 +16,7 @@ type PostFormProps = {
   showDelete?: boolean;
   onDelete?: () => void;
   onImageChange?: (file: File | null) => void;
+  imagePreviewUrl?: string | null;
 };
 
 export default function PostForm({
@@ -25,6 +26,7 @@ export default function PostForm({
   showDelete = false,
   onDelete,
   onImageChange,
+  imagePreviewUrl,
 }: PostFormProps) {
   const [title, setTitle] = useState(initialValues.title);
   const [content, setContent] = useState(initialValues.content);
@@ -56,27 +58,31 @@ export default function PostForm({
         />
       </div>
 
-      <div className="space-y-2">
-        <label className="text-sm text-gray-700">Bild</label>
-
-        <input
-          type="file"
-          accept="image/*"
-          id="image-upload"
-          className="hidden"
-          onChange={(e) => {
-            const file = e.target.files?.[0] ?? null;
-            onImageChange?.(file);
-          }}
+      {imagePreviewUrl && (
+        <img
+          src={imagePreviewUrl}
+          alt="Bild"
+          className="h-28 w-28 rounded-xl object-cover"
         />
+      )}
 
-        <label
-          htmlFor="image-upload"
-          className="inline-block cursor-pointer rounded-full bg-white/70 px-4 py-2 text-sm shadow hover:shadow-md transition"
-        >
-          Välj bild
-        </label>
-      </div>
+      <input
+        type="file"
+        accept="image/*"
+        id="image-upload"
+        className="hidden"
+        onChange={(e) => {
+          const file = e.target.files?.[0] ?? null;
+          onImageChange?.(file);
+        }}
+      />
+
+      <label
+        htmlFor="image-upload"
+        className="inline-block cursor-pointer rounded-full bg-white/70 px-4 py-2 text-sm shadow hover:shadow-md transition"
+      >
+        Välj bild
+      </label>
 
       <label className="flex items-center gap-2 text-sm text-gray-700">
         <input

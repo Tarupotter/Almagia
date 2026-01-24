@@ -87,14 +87,6 @@ export default function EditPostClient({
     <div className="space-y-6">
       <h1 className="text-xl">Redigera inlägg</h1>
 
-      {imageToShow && (
-        <img
-          src={imageToShow}
-          alt="Bild"
-          className="w-full max-w-md rounded-2xl object-cover"
-        />
-      )}
-
       <PostForm
         initialValues={{
           title: initialValues.title,
@@ -106,6 +98,7 @@ export default function EditPostClient({
         onSubmit={onSubmit}
         onDelete={onDelete}
         onImageChange={handleImageChange}
+        imagePreviewUrl={imageToShow}
       />
     </div>
   );
