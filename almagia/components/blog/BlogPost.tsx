@@ -10,7 +10,7 @@ type BlogPostProps = {
     imageUrl,
   }: BlogPostProps) {
     return (
-      <article className="mx-auto py-12 bg-white/50 rounded-3xl shadow-md">
+      <article className="mx-auto py-12 px-14 bg-white/50 rounded-3xl shadow-md">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">{title}</h1>
   
         {imageUrl && (
@@ -23,7 +23,9 @@ type BlogPostProps = {
        </div>
         )}
   
-        <p className="text-gray-700 text-lg md:text-xl leading-relaxed text-center">{content}</p>
+  <div className="text-gray-700 text-lg md:text-xl leading-relaxed text-center whitespace-pre-wrap break-words">
+  {content}
+</div>
       </article>
     );
   }
