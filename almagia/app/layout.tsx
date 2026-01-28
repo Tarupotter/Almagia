@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import "./globals.css";
-import { cormorant, } from "./fonts";
+import { playfair } from "./fonts";
 
 
 export default function RootLayout({
@@ -11,7 +11,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sv">
-      <body className={`${cormorant.className}`}>
+      <body className={`${playfair.className}`}>
         <Header />  
         <main>{children}</main>
         <Footer />

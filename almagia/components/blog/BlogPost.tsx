@@ -1,3 +1,5 @@
+import { lora, inter } from "@/app/fonts";
+
 type BlogPostProps = {
     title: string;
     content: string;
@@ -23,7 +25,7 @@ type BlogPostProps = {
        </div>
         )}
   
-  <div className="text-gray-700 text-lg md:text-xl leading-relaxed text-center whitespace-pre-wrap break-words">
+  <div className={`${lora.className} text-gray-700 text-lg md:text-xl leading-relaxed text-center whitespace-pre-wrap break-words`}>
   {content}
 </div>
       </article>
