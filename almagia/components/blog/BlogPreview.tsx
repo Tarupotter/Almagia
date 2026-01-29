@@ -29,10 +29,10 @@ export default function BlogPreview({
           />
         )}
 
-        <div className="space-y-1">
-          <h2 className="text-xl font-semibold break-words line-clamp-2">{title}</h2>
+        <div>
+          <h2 className="text-xl font-semibold break-words line-clamp-2 ">{title}</h2>
           {publishedAt && (
-            <p className="text-xs text-gray-500">{publishedAt}</p>
+            <p className="text-xs text-gray-500 border-b border-gray-300 pb-1 mt-2">{publishedAt}</p>
           )}
         </div>
 

@@ -1,4 +1,4 @@
-import { lora, inter } from "@/app/fonts";
+import { lora } from "@/app/fonts";
 
 type BlogPostProps = {
     title: string;
@@ -11,12 +11,13 @@ type BlogPostProps = {
     content,
     imageUrl,
   }: BlogPostProps) {
+    
     return (
-      <article className="mx-auto py-12 px-14 bg-white/50 rounded-3xl shadow-md">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center">{title}</h1>
+      <article className="mx-auto py-8 px-14 bg-white/50 rounded-3xl shadow-md">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center border-b border-gray-200 pb-6">{title}</h1>
   
         {imageUrl && (
-         <div className="flex justify-center mb-6">
+         <div className="flex justify-center mb-20 mt-14">
          <img
            src={imageUrl}
            alt={title}
