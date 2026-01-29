@@ -32,7 +32,7 @@ export default async function BlogPage() {
             <BlogPreview
               id={post.id}
               title={post.title}
-              excerpt={post.content?.slice(0, 140) + "..."}
+              excerpt={post.content?.slice(0, 80) + "..."}
               publishedAt={
                 post.createdAt ? String(post.createdAt).slice(0, 10) : undefined
               }

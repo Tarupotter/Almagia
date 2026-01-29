@@ -19,7 +19,7 @@ export default async function BlogPostPage({
   if (error || !post || !post.published) notFound();
 
   return (
-    <main className="mx-auto max-w-4xl mt-12 px-6 py-16 space-y-6">
+    <main className="mx-auto max-w-5xl mt-12 px-6 py-16 space-y-6">
       <BlogPost
         title={post.title}
         content={post.content}

@@ -30,13 +30,13 @@ export default function BlogPreview({
         )}
 
         <div>
-          <h2 className="text-xl font-semibold break-words line-clamp-2 ">{title}</h2>
+          <h2 className="text-xl font-semibold">{title}</h2>
           {publishedAt && (
             <p className="text-xs text-gray-500 border-b border-gray-300 pb-1 mt-2">{publishedAt}</p>
           )}
         </div>
 
-        {excerpt && <p className="text-sm text-gray-700 break-words line-clamp-3">{excerpt}</p>}
+        {excerpt && <p className="text-sm text-gray-700 break-words">{excerpt}</p>}
 
         <span className="inline-block text-sm underline text-gray-700">
           Läs mer

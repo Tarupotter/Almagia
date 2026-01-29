@@ -1,4 +1,5 @@
 import Button from "../ui/Button";
+import ImageCarousel from "./ImageCarousel";
 
 export default function TreatmentsSection() {
   return (
@@ -7,11 +8,9 @@ export default function TreatmentsSection() {
         <h2 className="mb-20 text-center text-3xl">Behandlingar</h2>
 
         <div className="grid gap-16 md:grid-cols-[1fr_1.5fr] items-start">
-          <img
-            src="/Meditate.png"
-            alt="Healing behandling"
-            className="rounded-3xl object-cover "
-          />
+          <div className="w-full overflow-hidden rounded-2xl">
+            <ImageCarousel />
+          </div>
 
           <div className="space-y-10">
             <div className="rounded-3xl bg-white/10 backdrop-blur-sm p-10 shadow-sm">

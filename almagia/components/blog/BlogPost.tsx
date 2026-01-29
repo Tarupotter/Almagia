@@ -16,7 +16,10 @@ type BlogPostProps = {
       <article className="mx-auto py-8 px-14 bg-white/50 rounded-3xl shadow-md">
         <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center border-b border-gray-200 pb-6">{title}</h1>
   
-        {imageUrl && (
+  
+  <div className={`${lora.className} text-gray-700 text-lg md:text-xl leading-relaxed text-center whitespace-pre-wrap break-words`}>
+  {content}
+  {imageUrl && (
          <div className="flex justify-center mb-20 mt-14">
          <img
            src={imageUrl}
@@ -25,9 +28,6 @@ type BlogPostProps = {
          />
        </div>
         )}
-  
-  <div className={`${lora.className} text-gray-700 text-lg md:text-xl leading-relaxed text-center whitespace-pre-wrap break-words`}>
-  {content}
 </div>
       </article>
     );
