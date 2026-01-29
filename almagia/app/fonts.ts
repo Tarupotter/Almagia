@@ -6,7 +6,8 @@ import {
   Inter,
   Playfair_Display,
   Lora,
-  Lovers_Quarrel
+  Lovers_Quarrel,
+  Overlock
 } from "next/font/google";
 
 export const aboreto = Aboreto({
@@ -42,6 +43,11 @@ export const lora = Lora({
 });
 
 export const lovers = Lovers_Quarrel({
+  subsets: ["latin"],
+  weight: "400",
+});
+
+export const overlock = Overlock({
   subsets: ["latin"],
   weight: "400",
 });
