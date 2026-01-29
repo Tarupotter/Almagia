@@ -6,7 +6,7 @@ My final project. (Examensarbete).
 1. Clone the repository
 
 ```bash
-git clone <https://github.com/Tarupotter/Almagia.git>
+git clone https://github.com/Tarupotter/Almagia.git
 cd almagia
 ```
 
